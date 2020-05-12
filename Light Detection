@@ -1,0 +1,35 @@
+int photoresistor = A5;
+int power = A0;
+
+
+
+void setup()
+{
+
+
+   pinMode(photoresistor, INPUT);
+   pinMode(power, OUTPUT);
+
+  
+   digitalWrite(power,HIGH);
+   
+
+}
+
+
+void loop()
+{
+    int lightlevel = analogRead(photoresistor);
+    int i = 1;
+    
+    if (lightlevel >i )
+    {
+        Particle.publish("Sun","Up", PRIVATE);
+    }
+    else if (lightlevel <i )
+    {
+        Particle.publish("Sun","Down", PRIVATE);
+    }
+    delay(10000);
+  
+}
